@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .env
 EconomiaMZ_Plano_Grupo9_Atualizado.md
+.codex
+.aws
+AGENTS.md
+.agents
