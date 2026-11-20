@@ -26,9 +26,10 @@ const opcoes = computed(() => ({
   scales: {
     x: {
       type: 'linear',
-      min: props.dados[0]?.ano,
-      max: props.dados.at(-1)?.ano,
-      ticks: { precision: 0, callback: ano => String(ano) },
+      min: props.dados.length === 1 ? props.dados[0].ano - 1 : props.dados[0]?.ano,
+      max: props.dados.length === 1 ? props.dados[0].ano + 1 : props.dados.at(-1)?.ano,
+      afterBuildTicks: eixo => { eixo.ticks = props.dados.map(({ ano }) => ({ value: ano })) },
+      ticks: { callback: ano => String(ano) },
       grid: { display: false },
     },
     y: { beginAtZero: true, ticks: { callback: valor => formatarTaxa(valor) } },
