@@ -52,7 +52,7 @@ public/dados/     # Dataset JSON estático (integração pendente)
 
 O router define `/`, `/indicadores`, `/indicadores/:codigo` e uma rota de fallback 404. Usa hash history, pelo que as páginas são navegáveis e actualizáveis sem configuração de fallback no servidor. O detalhe disponível na interface integrada usa o código `inflacao`.
 
-As views existentes esperam `src/composables/useInflacao.js`, que deve carregar `public/dados/inflacao.json` com `fetch()` e `import.meta.env.BASE_URL`. Esses ficheiros de responsabilidade de Khrissy não estão presentes nesta cópia; por isso, a ligação de dados e a execução integral das páginas ainda dependem dessa integração. Os componentes de gráfico, filtro, comparação e e-mail já estão separados para reutilização pelas views.
+`src/composables/useInflacao.js` carrega `public/dados/inflacao.json` com `fetch()` e `import.meta.env.BASE_URL`, valida as observações e expõe estados de carregamento, erro, último registo e variação. Os componentes de gráfico, filtro, comparação e e-mail são reutilizados pelas views.
 
 ## Dados, fontes e licenças
 
@@ -61,7 +61,7 @@ O plano do grupo identifica a série como inflação anual de preços ao consumi
 - [FRED — FPCPITOTLZGMOZ](https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ)
 - [Banco Mundial — FP.CPI.TOTL.ZG para Moçambique](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=MZ)
 
-A data de consulta indicada no plano é 20/11/2026. A solução prevista é um snapshot JSON estático, não uma actualização automática. O dataset e a sua data de recolha ainda não estão integrados nesta branch, pelo que os valores e o período não são reproduzidos aqui como dados verificados. O plano regista a indicação FRED *Public Domain / Citation Requested*; as condições aplicáveis na fonte original e a atribuição final precisam de confirmação antes da entrega.
+A cópia JSON incluída contém cinco observações anuais, de 2021 a 2025, e identifica a consulta em 20/11/2026. É um snapshot estático, não uma actualização automática. O plano do grupo regista a indicação FRED *Public Domain / Citation Requested*; as condições aplicáveis na fonte original e a atribuição final precisam de confirmação antes da entrega.
 
 ## Serviço de e-mail
 
