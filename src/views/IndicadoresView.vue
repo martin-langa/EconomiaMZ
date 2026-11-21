@@ -1,6 +1,7 @@
 <script setup>
 import AnaliseInflacao from '../components/AnaliseInflacao.vue'
 import ConsultaInflacao from '../components/ConsultaInflacao.vue'
+import FormularioEmail from '../components/FormularioEmail.vue'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import ConsultaInflacao from '../components/ConsultaInflacao.vue'
     </header>
     <ConsultaInflacao v-slot="{ dados, fonte }">
       <AnaliseInflacao :dados="dados" :fonte="fonte">
-        <template #resumo="seleccao"><slot name="resumo" v-bind="seleccao" /></template>
+        <template #resumo="seleccao"><FormularioEmail v-bind="seleccao" /></template>
       </AnaliseInflacao>
       <RouterLink to="/indicadores/inflacao">Ver detalhe do indicador →</RouterLink>
     </ConsultaInflacao>
