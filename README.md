@@ -78,7 +78,7 @@ O envio real e a configuração externa ainda não foram confirmados. Consulte t
 - Martin Langa - 8556 - [martin-langa](https://github.com/martin-langa)
 - Xheymon Bucuane - 8478 - [xheymonFlavioBucuane](https://github.com/xheymonFlavioBucuane)
 
-Os perfis GitHub e números de estudante serão acrescentados quando forem fornecidos e confirmados.
+
 
 ## Utilização de inteligência artificial
 
