@@ -2,8 +2,15 @@ import { computed, onMounted, ref } from 'vue'
 
 const FONTE_PADRAO = 'https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ'
 
+function numeroDoFicheiro(valor) {
+  if (typeof valor === 'number') return valor
+  if (typeof valor === 'string' && valor.trim()) return Number(valor)
+  return NaN
+}
+
 export function useInflacao() {
   const dados = ref([])
+  const metadados = ref({})
   const fonte = ref(FONTE_PADRAO)
   const carregando = ref(true)
   const erro = ref('')
@@ -35,10 +42,10 @@ export function useInflacao() {
 
       const anos = new Set()
       const observacoes = conjunto.observacoes.map((observacao, indice) => {
-        const ano = Number(observacao?.ano)
-        const valor = Number(observacao?.valor)
+        const ano = numeroDoFicheiro(observacao?.ano)
+        const valor = numeroDoFicheiro(observacao?.valor)
 
-        if (!Number.isInteger(ano) || !Number.isFinite(valor)) {
+        if (!Number.isInteger(ano) || ano < 1 || !Number.isFinite(valor)) {
           throw new Error(`A observação ${indice + 1} contém um ano ou valor inválido.`)
         }
         if (anos.has(ano)) {
@@ -50,6 +57,7 @@ export function useInflacao() {
       })
 
       dados.value = observacoes.sort((a, b) => a.ano - b.ano)
+      metadados.value = conjunto.metadados ?? {}
       fonte.value = conjunto.metadados?.url_fonte || FONTE_PADRAO
     } catch (erroCarregamento) {
       dados.value = []
@@ -65,6 +73,7 @@ export function useInflacao() {
 
   return {
     dados,
+    metadados,
     fonte,
     carregando,
     erro,

@@ -61,7 +61,9 @@ O plano do grupo identifica a série como inflação anual de preços ao consumi
 - [FRED — FPCPITOTLZGMOZ](https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ)
 - [Banco Mundial — FP.CPI.TOTL.ZG para Moçambique](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=MZ)
 
-A cópia JSON incluída contém cinco observações anuais, de 2021 a 2025, e identifica a consulta em 20/11/2026. É um snapshot estático, não uma actualização automática. O plano do grupo regista a indicação FRED *Public Domain / Citation Requested*; as condições aplicáveis na fonte original e a atribuição final precisam de confirmação antes da entrega.
+O Banco Mundial identifica o FMI (*International Financial Statistics*) como fornecedor e indica a licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) na página do indicador. O FRED serviu de referência na consulta inicial de 20/11/2026.
+
+Para recolher novamente os dados, execute `npm run dados:importar` com Node.js 22 e acesso à Internet. O comando consulta a API do Banco Mundial para Moçambique, valida as cinco observações de 2021–2025, ordena-as e arredonda as taxas a cinco casas decimais. Só depois substitui `public/dados/inflacao.json` e regista a data de recolha. Reveja as diferenças antes de publicar. O navegador lê a cópia estática com `fetch()` e a publicação funciona mesmo com a API indisponível.
 
 ## Serviço de e-mail
 

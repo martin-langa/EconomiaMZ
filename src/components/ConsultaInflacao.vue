@@ -3,7 +3,7 @@ import { useInflacao } from '../composables/useInflacao.js'
 import '../assets/consulta-inflacao.css'
 
 const {
-  dados, fonte, carregando, erro, ultimoDado, dadoAnterior,
+  dados, metadados, fonte, carregando, erro, ultimoDado, dadoAnterior,
   variacaoPontosPercentuais, carregarInflacao,
 } = useInflacao()
 </script>
@@ -17,12 +17,17 @@ const {
     </div>
     <p v-else-if="!dados.length" role="status">Sem dados de inflação disponíveis.</p>
     <template v-else>
-      <slot :dados="dados" :fonte="fonte" :ultimoDado="ultimoDado" :dadoAnterior="dadoAnterior"
+      <slot :dados="dados" :fonte="fonte" :metadados="metadados" :ultimoDado="ultimoDado" :dadoAnterior="dadoAnterior"
         :variacaoPontosPercentuais="variacaoPontosPercentuais" />
       <footer>
-        Banco Mundial, <i>World Development Indicators</i>, via
+        Banco Mundial, <i>World Development Indicators</i> (FMI).
+        <template v-if="metadados.url_api">
+          <a :href="metadados.url_api">Recolha pela API</a> em
+          <time :datetime="metadados.data_recolha_api">{{ metadados.data_recolha_api }}</time>.
+        </template>
+        Série de referência no
         <a :href="fonte">FRED (FPCPITOTLZGMOZ)</a>.
-        Cópia histórica consultada em <time datetime="2026-11-20">20/11/2026</time>.
+        Consulta FRED em <time datetime="2026-11-20">20/11/2026</time>.
       </footer>
     </template>
   </div>

@@ -7,7 +7,7 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim()
 
 export const modoSimulado = !serviceId && !templateId && !publicKey
 
-export function criarResumo({ dados, base, comparado, variacaoPontosPercentuais, fonte }) {
+export function criarResumo({ dados, base, comparado, variacaoPontosPercentuais, fonte, metadados }) {
   const linhas = [
     'Inflação anual de Moçambique',
     'Taxas anuais do período seleccionado',
@@ -18,7 +18,10 @@ export function criarResumo({ dados, base, comparado, variacaoPontosPercentuais,
     linhas.push('', `Diferença de ${base.ano} (${formatarTaxa(base.valor)}) para ${comparado.ano} (${formatarTaxa(comparado.valor)}): ${formatarPontos(variacaoPontosPercentuais)}`)
   }
 
-  linhas.push('', 'Dados históricos. Fonte: Banco Mundial via FRED.', fonte, 'Data de consulta: 20/11/2026.')
+  linhas.push('', 'Dados históricos. Fonte: Banco Mundial via FRED.', fonte, 'Consulta FRED: 20/11/2026.')
+  if (metadados?.url_api) {
+    linhas.push(`Dados recolhidos pela API do Banco Mundial em ${metadados.data_recolha_api}.`, metadados.url_api)
+  }
   return linhas.join('\n')
 }
 

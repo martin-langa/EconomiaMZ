@@ -18,14 +18,14 @@ const route = useRoute()
       </p>
       <p v-else>O código solicitado não corresponde a um indicador disponível.</p>
     </header>
-    <ConsultaInflacao v-if="route.params.codigo === 'inflacao'" v-slot="{ dados, fonte }">
+    <ConsultaInflacao v-if="route.params.codigo === 'inflacao'" v-slot="{ dados, fonte, metadados }">
       <dl class="metadados">
         <div><dt>Código do indicador</dt><dd>FP.CPI.TOTL.ZG</dd></div>
         <div><dt>Período da cópia</dt><dd>{{ dados[0].ano }} – {{ dados.at(-1).ano }}</dd></div>
-        <div><dt>Atribuição indicada no ficheiro</dt><dd>FRED · Public Domain / Citation Requested</dd></div>
+        <div><dt>Atribuição indicada no ficheiro</dt><dd>{{ metadados.licenca_indicada }}</dd></div>
       </dl>
       <AnaliseInflacao :dados="dados" :fonte="fonte">
-        <template #resumo="seleccao"><FormularioEmail v-bind="seleccao" /></template>
+        <template #resumo="seleccao"><FormularioEmail v-bind="seleccao" :metadados="metadados" /></template>
       </AnaliseInflacao>
     </ConsultaInflacao>
   </main>
