@@ -2,6 +2,12 @@ import { computed, onMounted, ref } from 'vue'
 
 const FONTE_PADRAO = 'https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ'
 
+function numeroDoFicheiro(valor) {
+  if (typeof valor === 'number') return valor
+  if (typeof valor === 'string' && valor.trim()) return Number(valor)
+  return NaN
+}
+
 export function useInflacao() {
   const dados = ref([])
   const metadados = ref({})
@@ -36,10 +42,10 @@ export function useInflacao() {
 
       const anos = new Set()
       const observacoes = conjunto.observacoes.map((observacao, indice) => {
-        const ano = Number(observacao?.ano)
-        const valor = Number(observacao?.valor)
+        const ano = numeroDoFicheiro(observacao?.ano)
+        const valor = numeroDoFicheiro(observacao?.valor)
 
-        if (!Number.isInteger(ano) || !Number.isFinite(valor)) {
+        if (!Number.isInteger(ano) || ano < 1 || !Number.isFinite(valor)) {
           throw new Error(`A observação ${indice + 1} contém um ano ou valor inválido.`)
         }
         if (anos.has(ano)) {
