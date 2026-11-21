@@ -2,6 +2,7 @@
 import { useRoute } from 'vue-router'
 import AnaliseInflacao from '../components/AnaliseInflacao.vue'
 import ConsultaInflacao from '../components/ConsultaInflacao.vue'
+import FormularioEmail from '../components/FormularioEmail.vue'
 
 const route = useRoute()
 </script>
@@ -24,7 +25,7 @@ const route = useRoute()
         <div><dt>Atribuição indicada no ficheiro</dt><dd>FRED · Public Domain / Citation Requested</dd></div>
       </dl>
       <AnaliseInflacao :dados="dados" :fonte="fonte">
-        <template #resumo="seleccao"><slot name="resumo" v-bind="seleccao" /></template>
+        <template #resumo="seleccao"><FormularioEmail v-bind="seleccao" /></template>
       </AnaliseInflacao>
     </ConsultaInflacao>
   </main>
