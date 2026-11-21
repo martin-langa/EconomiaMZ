@@ -7,6 +7,7 @@ const props = defineProps({
   base: Object,
   comparado: Object,
   variacaoPontosPercentuais: Number,
+  metadados: Object,
   fonte: { type: String, required: true },
 })
 

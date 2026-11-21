@@ -25,7 +25,7 @@ const route = useRoute()
         <div><dt>Atribuição indicada no ficheiro</dt><dd>{{ metadados.licenca_indicada }}</dd></div>
       </dl>
       <AnaliseInflacao :dados="dados" :fonte="fonte">
-        <template #resumo="seleccao"><FormularioEmail v-bind="seleccao" /></template>
+        <template #resumo="seleccao"><FormularioEmail v-bind="seleccao" :metadados="metadados" /></template>
       </AnaliseInflacao>
     </ConsultaInflacao>
   </main>
