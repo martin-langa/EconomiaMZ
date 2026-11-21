@@ -4,6 +4,7 @@ const FONTE_PADRAO = 'https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ'
 
 export function useInflacao() {
   const dados = ref([])
+  const metadados = ref({})
   const fonte = ref(FONTE_PADRAO)
   const carregando = ref(true)
   const erro = ref('')
@@ -50,6 +51,7 @@ export function useInflacao() {
       })
 
       dados.value = observacoes.sort((a, b) => a.ano - b.ano)
+      metadados.value = conjunto.metadados ?? {}
       fonte.value = conjunto.metadados?.url_fonte || FONTE_PADRAO
     } catch (erroCarregamento) {
       dados.value = []
@@ -65,6 +67,7 @@ export function useInflacao() {
 
   return {
     dados,
+    metadados,
     fonte,
     carregando,
     erro,
