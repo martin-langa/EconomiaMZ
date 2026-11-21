@@ -6,4 +6,4 @@
 
 [3] ISUTC. *Projecto Final — Uma aplicação Web em Vue.js para um problema real de Moçambique*. Enunciado da disciplina Programação Web II, LECC31, 2026.
 
-[4] Grupo 9. *EconomiaMZ: cópia local de dados da inflação anual*. `public/dados/inflacao.json`, observações de 2021 a 2025, consulta indicada em 20/11/2026. A indicação de licença registada no ficheiro é “FRED: Public Domain / Citation Requested”; as condições da fonte original devem ser confirmadas antes da entrega.
+[4] Grupo 9. *EconomiaMZ: cópia local de dados da inflação anual*. `public/dados/inflacao.json`, observações de 2021 a 2025, consulta indicada em 20/11/2026. A indicação de licença registada no ficheiro é “FRED: Public Domain / Citation Requested”; a página do indicador [1] identifica o FMI como fornecedor e atribui ao indicador a licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

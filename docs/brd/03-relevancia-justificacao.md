@@ -1,0 +1,7 @@
+## 3. Relevância e justificação
+
+Uma família na Beira ou um comerciante em Nampula pode usar a série nacional para comparar o ritmo de subida dos preços em dois anos. Entre 2022 e 2023, por exemplo, a inflação anual passou de 10,28% para 7,13%. Os preços continuaram a subir em média, mas a taxa diminuiu cerca de 3,15 pontos percentuais. A indicação do ano e da unidade ajuda a interpretar essa diferença. A média nacional tem alcance limitado para explicar despesas individuais ou diferenças entre províncias.
+
+O EconomiaMZ usa o indicador de inflação anual dos preços ao consumidor para Moçambique, publicado pelo Banco Mundial nos *World Development Indicators*. A página do indicador identifica o FMI (*International Financial Statistics*) como fornecedor e indica a licença CC BY 4.0. A série do FRED foi a referência usada pelo grupo em 20/11/2026. [Banco Mundial](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=MZ) · [FRED](https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ)
+
+Em 21/11/2026, o grupo obteve as cinco observações de 2021 a 2025 pela API do Banco Mundial. As taxas coincidiram, a cinco casas decimais, com a cópia inicial. A aplicação lê o ficheiro JSON com `fetch()`, permitindo repetir a demonstração mesmo quando a fonte externa está indisponível. Uma nova recolha é feita por comando explícito e fica datada no ficheiro. [Consulta à API](https://api.worldbank.org/v2/country/MOZ/indicator/FP.CPI.TOTL.ZG?format=json&date=2021%3A2025&source=2)
