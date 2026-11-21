@@ -4,5 +4,5 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '/pwebii-2026-grupo9-economiamz/',
+  base: '/EconomiaMZ/',
 })

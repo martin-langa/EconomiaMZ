@@ -84,4 +84,4 @@ Foi utilizado OpenAI Codex como assistente de programação nesta contribuição
 
 ## Publicação
 
-O Vite está preparado com o caminho-base `/pwebii-2026-grupo9-economiamz/`. O workflow `.github/workflows/deploy.yml` instala a partir do lockfile, executa os testes disponíveis, compila e publica o artefacto `dist` através das GitHub Actions oficiais do Pages. Para activar o deploy, o repositório GitHub tem de existir com o nome/caminho correspondente e Pages deve estar configurado para usar GitHub Actions. A execução real do workflow e a aplicação pública ainda não foram confirmadas.
+Em **Settings → Pages → Build and deployment**, seleccione **GitHub Actions**. Cada push para `production` executa o workflow `.github/workflows/deploy.yml`, que compila o projecto e publica `dist`. O Vite usa o caminho `/EconomiaMZ/` para servir os recursos e o dataset. Se o ambiente `github-pages` limitar os branches autorizados, inclua `production`.
