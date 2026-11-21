@@ -1,0 +1,9 @@
+## 2. Contexto e problema
+
+A inflação anual mede a variação dos preços ao consumidor ao longo de um ano. Em Moçambique, a leitura deste indicador ajuda famílias e pequenos negócios a contextualizar decisões de orçamento, poupança e definição de preços. Uma taxa nacional não descreve exactamente o cabaz de cada família nem o custo de um produto específico, mas oferece uma referência pública comum.
+
+O problema tratado pelo EconomiaMZ é a dificuldade de consultar e interpretar uma série histórica de forma simples. Um valor isolado, sem ano ou fonte, pode ser confundido com uma medida actual. Uma diferença entre duas taxas também pode ser interpretada erradamente como a própria inflação ou como uma variação percentual entre valores. A aplicação identifica o último ano presente na cópia dos dados, apresenta a evolução anual e calcula a diferença entre dois anos em pontos percentuais.
+
+Os utilizadores previstos incluem pessoas que acompanham o orçamento familiar, pequenos comerciantes, estudantes e docentes. O percurso foi pensado para consulta no telemóvel: seleccionar um período, comparar dois anos e pedir, por iniciativa própria, um resumo por e-mail. O resumo reproduz os dados escolhidos e a atribuição da fonte.
+
+Esta primeira versão usa apenas a inflação anual de Moçambique. Não fornece preços diários, séries provinciais, previsões ou informação em tempo real. O ficheiro JSON local contém uma cópia estática de cinco observações, de 2021 a 2025, identificada como consultada em 20/11/2026. A fonte original indicada é o Banco Mundial, *World Development Indicators*, indicador `FP.CPI.TOTL.ZG`; a série foi consultada através do FRED, `FPCPITOTLZGMOZ` [1, 2]. A aplicação lê essa cópia com `fetch()`. A origem e a data aparecem junto dos resultados para permitir ao utilizador avaliar o alcance temporal da informação.
