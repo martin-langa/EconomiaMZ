@@ -1,7 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <div class="app-shell">
+    <Navbar />
+    <RouterView />
+    <footer class="app-footer">
+      <p>EconomiaMZ · Monitor da Inflação em Moçambique</p>
+    </footer>
+  </div>
 </template>

@@ -1,5 +1,5 @@
 {
-  "name": "pw2",
+  "name": "economiamz",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^5.0.3",
-    "vue": "^3.5.44"
+    "chart.js": "^4.6.1",
+    "vue": "^3.5.44",
+    "vue-chartjs": "^5.3.7",
+    "vue-router": "^5.5.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.10",
