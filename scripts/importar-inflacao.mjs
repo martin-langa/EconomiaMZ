@@ -1,3 +1,6 @@
+import { readFile, writeFile, rename } from "node:fs/promises"
+import { pathToFileURL } from "node:url"
+
 const inicio = 2021
 const fim = 2025
 const indicador = 'FP.CPI.TOTL.ZG'
@@ -19,4 +22,21 @@ export function normalizarSerie(resposta) {
   }
   if (anual.size !== fim - inicio + 1) throw new Error('Faltam anos no período do projecto.')
   return [...anual.values()].sort((a, b) => a.ano - b.ano)
+}
+
+async function importar() {
+  const ficheiro = new URL('../public/dados/inflacao.json', import.meta.url)
+  const copia = JSON.parse(await readFile(ficheiro, 'utf8'))
+  const resposta = await fetch(url, { signal: AbortSignal.timeout(12000) })
+  if (!resposta.ok) throw new Error(`API devolveu HTTP ${resposta.status}.`)
+  copia.observacoes = normalizarSerie(await resposta.json())
+  copia.metadados.url_api = url.href
+  copia.metadados.data_recolha_api = new Date().toISOString().slice(0, 10)
+  const temporario = new URL(`inflacao.${process.pid}.tmp`, ficheiro)
+  await writeFile(temporario, JSON.stringify(copia, null, 2) + '\n')
+  await rename(temporario, ficheiro)
+}
+
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+  await importar()
 }
