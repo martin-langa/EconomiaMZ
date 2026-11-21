@@ -1,89 +1,175 @@
 # EconomiaMZ — Monitor da Inflação
 
-Aplicação Web académica para consultar e interpretar a evolução histórica da inflação anual em Moçambique. O projecto apresenta a taxa mais recente disponível no conjunto de dados, permite explorar a série, comparar anos em pontos percentuais e preparar um resumo por e-mail. Não fornece previsões nem dados em tempo real.
+Aplicação Web académica desenvolvida no âmbito da disciplina de Programação Web II, com o objectivo de facilitar a consulta, visualização e interpretação da evolução histórica da inflação anual em Moçambique.
 
-## Estado e ligações
+A aplicação permite consultar a taxa de inflação mais recente disponível no conjunto de dados, visualizar a evolução histórica através de gráficos, comparar diferentes anos e preparar resumos para partilha por e-mail.
 
-- Repositório público com o nome previsto `pwebii-2026-grupo9-economiamz`: **por confirmar**. O remote Git actualmente configurado aponta para `martin-langa/EconomiaMZ`; a correspondência com o repositório público previsto ainda não foi verificada.
-- Aplicação publicada no GitHub Pages: **pendente**.
-- Os usernames GitHub da equipa e os links públicos individuais ainda não foram fornecidos.
+## 1. Problema
 
-## Tecnologias
+A informação sobre a inflação em Moçambique encontra-se, frequentemente, em relatórios, tabelas estatísticas e diferentes plataformas de consulta, o que pode dificultar o acesso, a interpretação e a comparação dos dados por parte dos estudantes, cidadãos e outros interessados.
 
-- Vue 3 e Composition API
-- Vite
-- Vue Router, com hash history para suportar publicação em subdirectório
-- Chart.js e vue-chartjs
-- `@emailjs/browser` para o serviço de e-mail
-- npm, com versões exactas registadas no `package-lock.json`
+O EconomiaMZ procura simplificar este processo através de uma interface centralizada, intuitiva e visual, permitindo compreender melhor a evolução da inflação ao longo dos anos e facilitar a consulta dos dados estatísticos.
 
-## Requisitos e execução
+## 2. Funcionalidades
 
-É necessário Node.js 22 LTS e npm. Na pasta do projecto:
+- Consulta da taxa de inflação mais recente disponível.
+- Visualização da evolução histórica da inflação através de gráficos.
+- Exploração dos dados referentes a diferentes anos.
+- Comparação da inflação entre dois anos, com apresentação da diferença em pontos percentuais.
+- Preparação e envio de resumos por e-mail.
+- Interface responsiva e navegação entre páginas.
+
+> A aplicação utiliza dados históricos e não disponibiliza previsões, actualizações em tempo real ou aconselhamento financeiro.
+
+## 3. Publicação e repositório
+
+- **GitHub:** [EconomiaMZ — Repositório](https://github.com/martin-langa/EconomiaMZ)
+- **GitHub Pages:** [EconomiaMZ — Aplicação Web](https://martin-langa.github.io/EconomiaMZ/#/)
+
+## 4. Membros do grupo 09
+
+| Nome | Nº de estudante | GitHub |
+|---|---:|---|
+| Arão Sibinde | 8090 | [AraoSibindeJr](https://github.com/AraoSibindeJr) |
+| Khrissy Marcelo | 7930 | [khrissy9](https://github.com/khrissy9) |
+| Martin Langa | 8556 | [martin-langa](https://github.com/martin-langa) |
+| Xheymon Bucuane | 8478 | [xheymonFlavioBucuane](https://github.com/xheymonFlavioBucuane) |
+
+## 5. Tecnologias utilizadas
+
+- **Vue 3** — desenvolvimento da interface e componentes reativos.
+- **Composition API** — organização da lógica dos componentes.
+- **Vite** — ferramenta de desenvolvimento e compilação.
+- **Vue Router** — navegação entre páginas.
+- **Chart.js e vue-chartjs** — visualização gráfica dos dados.
+- **EmailJS (`@emailjs/browser`)** — integração para envio de e-mails.
+- **npm** — gestão de dependências.
+
+## 6. Fontes de dados
+
+Os dados de inflação utilizados na aplicação correspondem ao indicador de inflação anual dos preços ao consumidor em Moçambique, disponibilizado pelo Banco Mundial através do conjunto de dados *World Development Indicators*.
+
+- **Indicador:** Inflation, consumer prices (annual %).
+- **Código do indicador:** `FP.CPI.TOTL.ZG`.
+- **País:** Moçambique.
+- **Período disponibilizado na aplicação:** 2021–2025.
+
+Fontes consultadas:
+
+- [FRED — Inflation, Mozambique (FPCPITOTLZGMOZ)](https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ)
+- [World Bank — Inflation, consumer prices (annual %), Mozambique](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=MZ)
+
+Os dados são armazenados localmente num ficheiro JSON, permitindo que a aplicação funcione sem depender de uma ligação à API durante a utilização normal.
+
+## 7. Serviço de e-mail
+
+A aplicação utiliza o **EmailJS**, através do pacote `@emailjs/browser`, para a integração do envio de e-mails.
+
+O serviço permite preparar e enviar resumos relacionados com os dados de inflação, sem necessidade de implementar um servidor de e-mail próprio.
+
+A integração requer a configuração das respectivas variáveis de ambiente.
+
+## 8. Requisitos
+
+Para executar o projecto localmente, é necessário ter instalado:
+
+- [Node.js 22 LTS](https://nodejs.org/)
+- npm (incluído na instalação do Node.js)
+- Git
+
+## 9. Instalação e execução local
+
+### 9.1. Clonar o repositório
 
 ```bash
-git clone <URL_CONFIRMADO_DO_REPOSITORIO>
+git clone https://github.com/martin-langa/EconomiaMZ.git
+```
+
+### 9.2. Entrar na pasta do projecto
+
+```bash
 cd EconomiaMZ
-npm ci
+```
+
+### 9.3. Instalar as dependências
+
+```bash
+npm install
+```
+
+### 9.4. Configurar as variáveis de ambiente
+
+Criar um ficheiro `.env` na raiz do projecto e definir as variáveis necessárias para a integração do EmailJS.
+
+```env
+VITE_EMAILJS_SERVICE_ID=
+VITE_EMAILJS_TEMPLATE_ID=
+VITE_EMAILJS_PUBLIC_KEY=
+```
+
+> Os valores das variáveis devem ser obtidos na conta e configuração do EmailJS. Não incluir credenciais privadas ou valores reais no repositório público.
+
+### 9.5. Executar a aplicação
+
+```bash
 npm run dev
 ```
 
-Substitua o marcador pelo URL do repositório quando o endereço público for confirmado. O Vite apresenta no terminal o endereço local. Para executar os testes configurados (actualmente não existe script `test`) e verificar a compilação/versão de produção:
+Após a execução, o Vite apresentará no terminal o endereço local para aceder à aplicação através do navegador.
+
+## 10. Compilação e pré-visualização de produção
+
+Para gerar a versão de produção:
 
 ```bash
-npm run test --if-present
 npm run build
+```
+
+Para visualizar localmente a versão compilada:
+
+```bash
 npm run preview
 ```
 
-Não existe actualmente um script de testes automatizados no `package.json`. `npm test` não está configurado; o workflow executa `npm run test --if-present` e sempre exige que o build termine com sucesso.
-
-## Estrutura e integração
+## 11. Estrutura do projecto
 
 ```text
-src/
-├── components/   # Navbar e componentes de interface reutilizáveis
-├── composables/  # Estado e carregamento de dados (integração pendente)
-├── router/       # Rotas centrais da aplicação
-├── services/     # Integração do serviço de e-mail
-└── views/        # Início, indicadores, detalhe e página 404
-public/dados/     # Dataset JSON estático (integração pendente)
+EconomiaMZ/
+├── public/
+│   └── dados/
+│       └── inflacao.json
+├── src/
+│   ├── components/
+│   ├── composables/
+│   ├── router/
+│   ├── services/
+│   └── views/
+├── .env
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
-O router define `/`, `/indicadores`, `/indicadores/:codigo` e uma rota de fallback 404. Usa hash history, pelo que as páginas são navegáveis e actualizáveis sem configuração de fallback no servidor. O detalhe disponível na interface integrada usa o código `inflacao`.
+- `components/` — componentes reutilizáveis da interface.
+- `composables/` — lógica de estado, carregamento e processamento de dados.
+- `router/` — configuração das rotas da aplicação.
+- `services/` — serviços externos, incluindo a integração do e-mail.
+- `views/` — páginas da aplicação.
+- `public/dados/` — ficheiro JSON com os dados históricos da inflação.
 
-`src/composables/useInflacao.js` carrega `public/dados/inflacao.json` com `fetch()` e `import.meta.env.BASE_URL`, valida as observações e expõe estados de carregamento, erro, último registo e variação. Os componentes de gráfico, filtro, comparação e e-mail são reutilizados pelas views.
+## 12. Actualização dos dados
 
-## Dados, fontes e licenças
+O projecto disponibiliza um mecanismo de importação dos dados através do comando:
 
-O plano do grupo identifica a série como inflação anual de preços ao consumidor (`FP.CPI.TOTL.ZG`, Moçambique), com fonte original *World Development Indicators* do Banco Mundial e série consultada no FRED `FPCPITOTLZGMOZ`:
+```bash
+npm run dados:importar
+```
 
-- [FRED — FPCPITOTLZGMOZ](https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ)
-- [Banco Mundial — FP.CPI.TOTL.ZG para Moçambique](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=MZ)
+Este comando consulta a API do Banco Mundial, valida os registos referentes ao período configurado, organiza os dados e actualiza o ficheiro JSON local.
 
-O Banco Mundial identifica o FMI (*International Financial Statistics*) como fornecedor e indica a licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) na página do indicador. O FRED serviu de referência na consulta inicial de 20/11/2026.
+A aplicação utiliza o ficheiro JSON resultante, garantindo que a consulta dos dados não depende da disponibilidade da API externa durante a execução.
 
-Para recolher novamente os dados, execute `npm run dados:importar` com Node.js 22 e acesso à Internet. O comando consulta a API do Banco Mundial para Moçambique, valida as cinco observações de 2021–2025, ordena-as e arredonda as taxas a cinco casas decimais. Só depois substitui `public/dados/inflacao.json` e regista a data de recolha. Reveja as diferenças antes de publicar. O navegador lê a cópia estática com `fetch()` e a publicação funciona mesmo com a API indisponível.
+---
 
-## Serviço de e-mail
-
-O formulário usa `@emailjs/browser`. Para activar o envio, configure localmente `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID` e `VITE_EMAILJS_PUBLIC_KEY`, usando como referência `.env.example`. Crie um `.env` local (já ignorado pelo Git) e não inclua valores reais em commits. Variáveis `VITE_` são incorporadas no código do browser: use apenas identificadores/chaves públicas permitidos pelo EmailJS, restrinja os domínios autorizados e nunca coloque segredos privados no frontend. Sem configuração, o serviço actual opera em modo de demonstração e não envia mensagens.
-
-O envio real e a configuração externa ainda não foram confirmados. Consulte também as [condições de utilização do EmailJS](https://www.emailjs.com/legal/terms-of-service/).
-
-## Equipa
-
-- Arão Sibinde - 8090 - [AraoSibindeJr](https://github.com/AraoSibindeJr)
-- Khrissy Marcelo - 7930 - [khrissy9](https://github.com/khrissy9)
-- Martin Langa - 8556 - [martin-langa](https://github.com/martin-langa)
-- Xheymon Bucuane - 8478 - [xheymonFlavioBucuane](https://github.com/xheymonFlavioBucuane)
-
-
-
-## Utilização de inteligência artificial
-
-Foi utilizado OpenAI Codex como assistente de programação nesta contribuição de estrutura, navegação, configuração e documentação. A ferramenta apoiou a análise e preparação de alterações; a equipa deve rever o código e adequar esta declaração às regras académicas e às ferramentas efectivamente usadas pelos restantes membros. Não se atribui aqui utilização de IA aos outros integrantes.
-
-## Publicação
-
-Em **Settings → Pages → Build and deployment**, seleccione **GitHub Actions**. Cada push para `production` executa o workflow `.github/workflows/deploy.yml`, que compila o projecto e publica `dist`. O Vite usa o caminho `/EconomiaMZ/` para servir os recursos e o dataset. Se o ambiente `github-pages` limitar os branches autorizados, inclua `production`.
+**EconomiaMZ — Monitor da Inflação**  
+Projecto académico desenvolvido pelo Grupo 09 no âmbito da disciplina de Programação Web II.
