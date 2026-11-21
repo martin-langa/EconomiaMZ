@@ -8,13 +8,30 @@
     "fonte_consultada": "FRED — FPCPITOTLZGMOZ",
     "url_fonte": "https://fred.stlouisfed.org/series/FPCPITOTLZGMOZ",
     "data_consulta": "2026-11-20",
-    "licenca_indicada": "FRED: Public Domain / Citation Requested; confirmar condições da fonte original"
+    "licenca_indicada": "Banco Mundial: CC BY 4.0 (FMI, International Financial Statistics); FRED: Public Domain / Citation Requested",
+    "url_api": "https://api.worldbank.org/v2/country/MOZ/indicator/FP.CPI.TOTL.ZG?format=json&date=2021%3A2025&source=2",
+    "data_recolha_api": "2026-11-21"
   },
   "observacoes": [
-    { "ano": 2021, "valor": 6.40848 },
-    { "ano": 2022, "valor": 10.2794 },
-    { "ano": 2023, "valor": 7.12697 },
-    { "ano": 2024, "valor": 4.07857 },
-    { "ano": 2025, "valor": 4.36847 }
+    {
+      "ano": 2021,
+      "valor": 6.40848
+    },
+    {
+      "ano": 2022,
+      "valor": 10.2794
+    },
+    {
+      "ano": 2023,
+      "valor": 7.12697
+    },
+    {
+      "ano": 2024,
+      "valor": 4.07857
+    },
+    {
+      "ano": 2025,
+      "valor": 4.36847
+    }
   ]
 }
