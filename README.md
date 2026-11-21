@@ -73,10 +73,10 @@ O envio real e a configuração externa ainda não foram confirmados. Consulte t
 
 ## Equipa
 
-- Arão Sibinde
-- Khrissy Marcelo
-- Martin Langa
-- Xheymon Bucuane
+- Arão Sibinde - 8090 - [AraoSibindeJr](https://github.com/AraoSibindeJr)
+- Khrissy Marcelo - 7930 - [khrissy9](https://github.com/khrissy9)
+- Martin Langa - 8556 - [martin-langa](https://github.com/martin-langa)
+- Xheymon Bucuane - 8478 - [xheymonFlavioBucuane](https://github.com/xheymonFlavioBucuane)
 
 Os perfis GitHub e números de estudante serão acrescentados quando forem fornecidos e confirmados.
 
